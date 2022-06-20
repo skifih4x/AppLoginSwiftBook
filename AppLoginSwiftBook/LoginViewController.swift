@@ -15,17 +15,8 @@ class LoginViewController: UIViewController {
     let login = "User"
     let password = "Password"
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
-    
     @IBAction func loginActionButton(_ sender: Any) {
-        if loginTF.text == login && passwordTF.text == password {
-            performSegue(withIdentifier: "WelcomeVC", sender: sender)
-        } else {
-            showAlert(with: "Не верно ввел login или password", and: "Пытайся еще")
-        }
+        loginPassword()
     }
     
     @IBAction func forgotLogin(_ sender: Any) {
@@ -49,9 +40,40 @@ class LoginViewController: UIViewController {
         loginTF.text = welcomeVC.loginTF
         passwordTF.text = welcomeVC.passwordTF
     }
+
+    
+    func loginPassword() {
+        if loginTF.text == login && passwordTF.text == password {
+            performSegue(withIdentifier: "WelcomeVC", sender: nil)
+        } else {
+            showAlert(with: "Не верно ввел login или password", and: "Пытайся еще")
+        }
+    }
+}
+
+//MARK: - UITextFieldDelegate
+
+extension LoginViewController: UITextFieldDelegate {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
         view.endEditing(true)
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        loginTF.returnKeyType = .next
+        passwordTF.returnKeyType = .done
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == loginTF {
+            passwordTF.becomeFirstResponder()
+        } else {
+            passwordTF.resignFirstResponder()
+            loginPassword()
+            
+        }
+        return true
     }
 }
 
