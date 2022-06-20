@@ -11,9 +11,9 @@ class LoginViewController: UIViewController {
     
     @IBOutlet var loginTF: UITextField!
     @IBOutlet var passwordTF: UITextField!
-
-    private let login = "User"
-    private let password = "Password"
+    
+    let login = "User"
+    let password = "Password"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,24 +21,33 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginActionButton(_ sender: Any) {
-        performSegue(withIdentifier: "WelcomeVC", sender: sender)
+        if loginTF.text == login && passwordTF.text == password {
+            performSegue(withIdentifier: "WelcomeVC", sender: sender)
+        } else {
+            showAlert(with: "Не верно ввел login или password", and: "Пытайся еще")
+        }
     }
-
+    
     @IBAction func forgotLogin(_ sender: Any) {
-        showAlert(with: "Не верный логин или пароль", and: "Попробуй еще раз")
+        showAlert(with: "Логин User", and: "Попробуй еще раз")
     }
     
     @IBAction func forgotPassword(_ sender: UIButton) {
-        showAlert(with: "Не верный логин или пароль", and: "Попробуй еще раз")
+        showAlert(with: "Пароль Password", and: "Попробуй еще раз")
     }
+    
+    //MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let welcomeVC = segue.destination as? WelcomeViewController else {return}
+        welcomeVC.welcomeVC = loginTF.text
         
     }
     
-    @IBAction override func unwind(for unwindSegue: UIStoryboardSegue, towards subsequentVC: UIViewController) {
-        guard let welcomeVC = unwindSegue.source as? WelcomeViewController else {return}
+    @IBAction func unwind(for segue: UIStoryboardSegue) {
+        guard let welcomeVC = segue.source as? WelcomeViewController else {return}
+        loginTF.text = welcomeVC.loginTF
+        passwordTF.text = welcomeVC.passwordTF
     }
     
 }

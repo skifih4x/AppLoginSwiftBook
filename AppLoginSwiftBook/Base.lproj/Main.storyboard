@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="px7-qG-3WP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21179.7" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="px7-qG-3WP">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21169.4"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -47,7 +48,7 @@
                                     <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="forgotLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ahh-Ag-0TA"/>
+                                    <action selector="forgotLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qn1-Lj-08x"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KcA-Ih-0QS">
@@ -58,7 +59,7 @@
                                     <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="forgotPassword:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AeO-lw-mSh"/>
+                                    <action selector="forgotPassword:" destination="BYZ-38-t0r" eventType="touchUpInside" id="z0a-yX-6ic"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -107,7 +108,7 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="logOutButton:" destination="xZb-qP-WMi" eventType="touchUpInside" id="AIt-T7-CHR"/>
-                                    <segue destination="8DJ-v8-EAP" kind="unwind" unwindAction="unwindFor:towards:" id="Zka-AB-Srd"/>
+                                    <segue destination="8DJ-v8-EAP" kind="unwind" unwindAction="unwindFor:" id="KHv-9u-4BN"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -130,7 +131,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="px7-qG-3WP" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="3yP-nS-OM2">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
